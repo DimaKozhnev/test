@@ -16,10 +16,6 @@ pipeline {
                 sh 'ssh kozhnev2@192.168.56.102 \'hostname\''
             }
         }
-        stage("Second step") {
-            steps {
-                sh 'ssh kozhnev2@192.168.56.102 \'hostname\''
-            }
-        }
+        
     }
 }

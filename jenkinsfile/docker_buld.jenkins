@@ -1,1 +1,22 @@
+#!groovy
+//run docker build
 
+pipeline{
+  agent{
+        label 'master'
+      }
+  options {
+          buildDiscarder(logRotator(numToKeepStr: '10',artifactNumToKeepStr: '10'))
+          timestamps()
+          }
+   stagees{
+          stage("create docker image") {
+          steps{
+          echo " ============== docker login =================="
+          dir ('docker/toolbox') {
+          sh 'docker build . '
+          }
+        }
+      }
+    }
+  }  

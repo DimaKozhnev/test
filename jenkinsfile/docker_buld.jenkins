@@ -12,7 +12,7 @@ pipeline{
    stagees{
           stage("create docker image") {
           steps{
-          echo " ============== docker login =================="
+          echo " ============== start building image =================="
           dir ('docker/toolbox') {
           sh 'docker build . '
           }
